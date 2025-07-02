@@ -1,0 +1,68 @@
+@startuml
+
+class Duck {
+    +display()
+    +swim()
+}   
+
+class MallardDuck {
+    +display()
+}
+
+class RedheadDuck {
+    +display()
+}
+
+class RubberDuck {
+    +display()
+}
+
+class DecoyDuck {
+    +display()
+}
+
+interface QuackBehavior {
+    +quack()
+}
+
+class Quack {
+    +quack()
+}
+
+class Squeak {
+    +quack()
+}
+
+class MuteQuack {
+    +quack()
+}
+
+interface FlyBehavior {
+    +fly()
+}
+
+class FlyWithWings {
+    +fly()
+}
+
+class FlyNoWay {
+    +fly()
+}
+
+
+
+
+Duck <|-- MallardDuck
+Duck <|-- RedheadDuck
+Duck <|-- RubberDuck
+Duck <|-- DecoyDuck
+Duck --> QuackBehavior
+Duck --> FlyBehavior
+QuackBehavior <|.. Quack
+QuackBehavior <|.. Squeak
+QuackBehavior <|.. MuteQuack
+FlyBehavior <|.. FlyWithWings
+FlyBehavior <|.. FlyNoWay   
+
+
+@end
