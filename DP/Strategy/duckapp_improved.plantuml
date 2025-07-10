@@ -1,77 +1,54 @@
 @startuml
 
 class Duck {
-    -quackBehavior: QuackBehavior
-    -flyBehavior: FlyBehavior
     +display()
     +swim()
+    -quackBehavior: QuackBehavior
+    -flyBehavior: FlyBehavior
     +performQuack()
     +performFly()
-}   
-
-class MallardDuck {
-    +display()
 }
-
-class RedheadDuck {
-    +display()
-}
-
-class RubberDuck {
-    +display()
-}
-
-class DecoyDuck {
-    +display()
-}
-
-interface QuackBehavior {
-    +quack()
-}
-
-class Quack implements QuackBehavior {
-    +quack()
-}
-
-class Squeak implements QuackBehavior {
-    +quack()
-}
-
-class MuteQuack implements QuackBehavior {
-    +quack()
-}
-
-interface FlyBehavior {
-    +fly()
-}
-
-class FlyWithWings implements FlyBehavior {
-    +fly()
-}
-
-class FlyNoWay implements FlyBehavior {
-    +fly()
-}
-
 
 class MallardDuck extends Duck
 class RedheadDuck extends Duck
 class RubberDuck extends Duck
 class DecoyDuck extends Duck
 
+interface QuackBehavior behavior Duck {
+    +quack()
+}
+
+class Quack implements QuackBehavior {
+    +quack()
+}
+class Squeak implements QuackBehavior {
+    +quack()
+}
+class MuteQuack implements QuackBehavior {
+    +quack()
+}
+
+interface FlyBehavior behavior Duck {
+    +fly()
+}
+
+class FlyWithWings implements FlyBehavior {
+    +fly()
+}
+class FlyNoWay implements FlyBehavior {
+    +fly()
+}
 
 ' Duck <|-- MallardDuck
 ' Duck <|-- RedheadDuck
 ' Duck <|-- RubberDuck
 ' Duck <|-- DecoyDuck
-Duck --> QuackBehavior
-Duck --> FlyBehavior
+' Duck --> QuackBehavior
+' Duck --> FlyBehavior
 ' QuackBehavior <|.. Quack
 ' QuackBehavior <|.. Squeak
 ' QuackBehavior <|.. MuteQuack
 ' FlyBehavior <|.. FlyWithWings
-' FlyBehavior <|.. FlyNoWay   
-
-
+' FlyBehavior <|.. FlyNoWay
 
 @end
